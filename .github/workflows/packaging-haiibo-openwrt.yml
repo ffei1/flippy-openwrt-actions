@@ -163,7 +163,7 @@ jobs:
           [[ -d "${armvirt_tarfile_path}" ]] || mkdir -p ${armvirt_tarfile_path}
           ln -sf /builder/openwrt ${GITHUB_WORKSPACE}/openwrt
 
-          latest_url="https://github.com/QXY716/haiibo-OpenWrt/releases/download/ARMv8_ROOTFS_PLUS/openwrt-armvirt-64-generic-rootfs.tar.gz"
+          latest_url="https://github.com/haiibo/OpenWrt/releases/download/Rockchip/openwrt-rockchip-armv8-rootfs.tar.gz"
 
           openwrt_filename="${latest_url##*/}"
           curl -fsSL "${latest_url}" -o "${armvirt_tarfile_path}/${openwrt_filename}"
