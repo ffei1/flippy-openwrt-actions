@@ -396,7 +396,7 @@ download_kernel() {
                     echo -e "${INFO} (${x}.${i}) [ ${vb} - ${kernel_var} ] Kernel download from [ ${kernel_down_from} ]"
 
                     # Download the kernel file. If the download fails, try again 10 times.
-                    for i in {1..10}; do
+                    for t in {1..10}; do
                         curl -fsSL "${kernel_down_from}" -o "${kernel_path}/${kernel_var}.tar.gz"
                         [[ "${?}" -eq "0" ]] && break || sleep 60
                     done
