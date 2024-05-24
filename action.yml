@@ -5,7 +5,7 @@ inputs:
   mode:
     description: "Select script."
     required: false
-    default: "flippy"
+    default: "stable"
 
 runs:
   using: "composite"
