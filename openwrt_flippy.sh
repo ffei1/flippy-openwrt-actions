@@ -421,7 +421,7 @@ make_openwrt() {
                 vb="rk35xx"
             else
                 build_kernel=(${STABLE_KERNEL[@]})
-                vb="flippy"
+                vb="stable"
             fi
 
             k="1"
