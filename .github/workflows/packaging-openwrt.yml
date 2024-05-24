@@ -60,6 +60,7 @@ on:
           - 5.10.y
           - 5.15.y
           - 6.1.y
+          - 6.1.31
           - 6.6.y
           - 6.1.y_6.6.y
           - 5.15.y_5.10.y
@@ -75,7 +76,7 @@ on:
       auto_kernel:
         description: "Auto use the latest kernel"
         required: false
-        default: true
+        default: false
         type: boolean
       script_diy_path:
         description: "Set custom script loading path"
@@ -97,7 +98,7 @@ on:
         options:
           - ophub
           - angel
-          - QXY716
+          - ffei
 
 env:
   TZ: America/New_York
