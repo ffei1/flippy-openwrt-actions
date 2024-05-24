@@ -198,7 +198,7 @@ init_var() {
             elif [[ " ${PACKAGE_OPENWRT_RK35XX[@]} " =~ " ${kt} " ]]; then
                 KERNEL_TAGS_TMP+=("rk35xx")
             else
-                KERNEL_TAGS_TMP+=("flippy")
+                KERNEL_TAGS_TMP+=("stable")
             fi
         done
         # Remove duplicate kernel tags
@@ -210,7 +210,7 @@ init_var() {
     echo -e "${INFO} Kernel tags: [ $(echo ${KERNEL_TAGS[@]} | xargs) ]"
 
     # Reset STABLE_KERNEL options
-    [[ -n "${KERNEL_VERSION_NAME}" && " ${KERNEL_TAGS[@]} " =~ " flippy " ]] && {
+    [[ -n "${KERNEL_VERSION_NAME}" && " ${KERNEL_TAGS[@]} " =~ " stable " ]] && {
         oldIFS="${IFS}"
         IFS="_"
         STABLE_KERNEL=(${KERNEL_VERSION_NAME})
@@ -328,7 +328,7 @@ query_kernel() {
                 echo -e "${INFO} The latest version of the rk35xx kernel: [ ${RK35XX_KERNEL[@]} ]"
             else
                 STABLE_KERNEL=(${TMP_ARR_KERNELS[@]})
-                echo -e "${INFO} The latest version of the flippy kernel: [ ${STABLE_KERNEL[@]} ]"
+                echo -e "${INFO} The latest version of the stable kernel: [ ${STABLE_KERNEL[@]} ]"
             fi
 
             let x++
