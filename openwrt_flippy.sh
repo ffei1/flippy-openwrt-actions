@@ -96,7 +96,7 @@ SCRIPT_QEMU_FILE="mk_qemu-aarch64_img.sh"
 SCRIPT_DIY_FILE="mk_diy.sh"
 
 # Set make.env related parameters
-WHOAMI_VALUE="flippy"
+WHOAMI_VALUE="stable"
 OPENWRT_VER_VALUE="auto"
 SW_FLOWOFFLOAD_VALUE="0"
 HW_FLOWOFFLOAD_VALUE="0"
