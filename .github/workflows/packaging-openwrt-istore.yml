@@ -4,7 +4,7 @@
 # Copyright (C) 2021 https://github.com/ophub/flippy-openwrt-actions
 #==========================================================================
 
-name: Packaging Haiibo OpenWrt
+name: Packaging OpenWrt iStore
 
 on:
   repository_dispatch:
@@ -158,13 +158,13 @@ jobs:
         working-directory: /builder
         if: ${{ steps.init.outputs.status }} == 'success' && !cancelled()
         run: |
-          releases_tag_keywords="OpenWrt_Haiibo"
+          releases_tag_keywords="OpenWrt_iStore"
 
           armvirt_tarfile_path="openwrt/bin/targets/armvirt/64"
           [[ -d "${armvirt_tarfile_path}" ]] || mkdir -p ${armvirt_tarfile_path}
           ln -sf /builder/openwrt ${GITHUB_WORKSPACE}/openwrt
 
-          latest_url="https://github.com/haiibo/OpenWrt/releases/download/Rockchip/openwrt-rockchip-armv8-rootfs.tar.gz"
+          latest_url="https://github.com/quanjindeng/Actions_OpenWrt-Amlogic/releases/download/openwrt_armvirt_iStore_05.16.0150/openwrt-armvirt-64-generic-rootfs.tar.gz"
 
           openwrt_filename="${latest_url##*/}"
           curl -fsSL "${latest_url}" -o "${armvirt_tarfile_path}/${openwrt_filename}"
@@ -207,18 +207,18 @@ jobs:
           replacesArtifacts: true
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            **This is OpenWrt Firmware for Armvirt 64**
-            ### 📒 固件信息
-            - 🚀 ARMv8 多功能版，集成插件多适合折腾
-            - 💻 平台架构: armvirt-64
-            - ⚽ 固件源码: https://github.com/coolsnowwolf/lede
-            - 💝 源码分支: master
-            - 🌐 默认地址: 192.168.1.1
-            - 🔑 默认密码: password
-            ### 🍻 安装与更新
-            - 用插件安装: 系统 → 晶晨宝盒 → 安装 OpenWrt → 选择型号 → 安装
-            - 用命令安装: U盘启动成功后输入命令 `openwrt-install-amlogic` 按照英文提示写入到 emmc
-            - 用插件更新: 系统 → 晶晨宝盒 → 在线下载更新 → 完整更新全系统
-            - 用命令更新: 上传固件到 `/mnt/mmcblk2p4` 目录，输入命令 `openwrt-update-amlogic` 即可更新
-            - 注意: 如非 `amlogic` 平台，请将其更改为对应平台 `rockchip` `allwinner`
-            - 部分常见问题及注意事项请参考恩山论坛F大➦[最新帖](https://www.right.com.cn/forum/thread-4076037-1-1.html)
+            ### **OpenWrt固件--精简版（含iStore插件）**
+            * **固件信息：**
+            默认IP: `10.10.10.1`
+            默认用户名: `root`
+            默认密码: `password`
+            * **使用方法：**
+            1. 安装固件：写入U盘直接使用；U盘启动后可输入命令 `openwrt-install-amlogic` 按照英文提示写入到emmc
+            2. 更新固件：将固件放在 `/mnt/mmcblk2p4/` 目录下，输入命令 `openwrt-update-amlogic` 可直接更新
+            3. 登录Luci界面后，可直接使用`晶晨宝盒`插件进行写入emmc或者更新操作（使用前先按需求填写好插件设置），免去手动输入命令！
+            * **提示：**
+            建议自行添加iStore的软件源，并在软件源配置里禁用`# option check_signature`，之后刷新一下软件列表
+            自定义软件源：
+            `src/gz is_nas_luci https://istore.linkease.com/repo/all/nas_luci`
+            `src/gz is_store https://istore.linkease.com/repo/all/store`
+            固件升级后不会保留自行安装的插件，注意使用iStore插件备份！
