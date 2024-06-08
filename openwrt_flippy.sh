@@ -453,7 +453,7 @@ make_openwrt() {
                 {
                     # Rockchip rk3568 series only support 6.x.y and above kernel
                     [[ -n "$(echo "${PACKAGE_OPENWRT_6XY[@]}" | grep -w "${PACKAGE_VAR}")" && "${kernel_var:0:2}" != "6." ]] && {
-                        echo -e "${STEPS} (${i}.${k}) ${NOTE} ${PACKAGE_VAR} cannot use ${kernel_var} kernel, skip."
+                        echo -e "${STEPS} (${i}.${k}) ${NOTE} Based on <PACKAGE_OPENWRT_6XY>, skip the [ ${PACKAGE_VAR} - ${vb}/${kernel_var} ] build."
                         let k++
                         continue
                     }
@@ -588,7 +588,7 @@ out_github_env() {
         fi
 
         # Generate a sha256sum verification file for each OpenWrt file
-        for file in *; do [[ -f "${file}" ]] && sudo sha256sum "${file}" >"${file}.sha" 2>/dev/null; done
+        for file in *; do [[ -f "${file}" ]] && sudo sha256sum "${file}" | sudo tee "${file}.sha" >/dev/null; done
         sudo rm -f *.sha.sha 2>/dev/null
 
         echo "PACKAGED_OUTPUTPATH=${PWD}" >>${GITHUB_ENV}
