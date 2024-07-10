@@ -20,7 +20,7 @@
 #=============================== Set make environment variables ===============================
 #
 # Set the default package source download repository
-SCRIPT_REPO_URL_VALUE="https://github.com/QXY716/openwrt_packit"
+SCRIPT_REPO_URL_VALUE="https://github.com/ffei1/openwrt_packit"
 SCRIPT_REPO_BRANCH_VALUE="master"
 
 # Set the *rootfs.tar.gz package save name
@@ -49,14 +49,14 @@ PACKAGE_OPENWRT_6XY=("r66s" "r68s" "e25" "photonicat" "cm3")
 PACKAGE_SOC_VALUE="all"
 
 # Set the default packaged kernel download repository
-KERNEL_REPO_URL_VALUE="QXY716/Kernel"
+KERNEL_REPO_URL_VALUE="breakings/Kernel"
 # Set kernel tag: kernel_stable, kernel_rk3588, kernel_rk35xx
 KERNEL_TAGS=("stable" "flippy" "rk3588" "rk35xx")
-STABLE_KERNEL=("6.1.y" "6.6.y" "5.15.y")
+STABLE_KERNEL=("6.1.75" "6.6.y" "5.15.y")
 FLIPPY_KERNEL=("6.1.y" "6.6.y" "5.15.y")
 RK3588_KERNEL=("5.10.y")
 RK35XX_KERNEL=("5.10.y")
-KERNEL_AUTO_LATEST_VALUE="true"
+KERNEL_AUTO_LATEST_VALUE="flase"
 
 # Set the working directory under /opt
 SELECT_PACKITPATH_VALUE="openwrt_packit"
