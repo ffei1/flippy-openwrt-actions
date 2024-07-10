@@ -212,7 +212,7 @@ init_var() {
     }
     echo -e "${INFO} Package directory: [ /opt/${SELECT_PACKITPATH} ]"
     echo -e "${INFO} Package SoC: [ $(echo ${PACKAGE_OPENWRT[@]} | xargs) ]"
-    echo -e "${INFO} Kernel tags: [ $(echo ${KERNEL_TAGS[@]} | xargs) ]"
+    echo -e "${INFO} Stable Kernel tags: [ $(echo ${KERNEL_TAGS[@]} | xargs) ]"
 
     # Reset STABLE_KERNEL options
     [[ -n "${KERNEL_VERSION_NAME}" && " ${KERNEL_TAGS[@]} " =~ " stable " ]] && {
