@@ -203,7 +203,7 @@ init_var() {
             elif [[ " ${PACKAGE_OPENWRT_RK35XX[@]} " =~ " ${kt} " ]]; then
                 KERNEL_TAGS_TMP+=("rk35xx")
             else
-                KERNEL_TAGS_TMP+=("flippy")
+                KERNEL_TAGS_TMP+=("stable")
             fi
         done
         # Remove duplicate kernel tags
@@ -215,12 +215,12 @@ init_var() {
     echo -e "${INFO} Kernel tags: [ $(echo ${KERNEL_TAGS[@]} | xargs) ]"
 
     # Reset STABLE_KERNEL options
-    [[ -n "${KERNEL_VERSION_NAME}" && " ${KERNEL_TAGS[@]} " =~ " flippy " ]] && {
+    [[ -n "${KERNEL_VERSION_NAME}" && " ${KERNEL_TAGS[@]} " =~ " stable " ]] && {
         oldIFS="${IFS}"
         IFS="_"
         STABLE_KERNEL=(${KERNEL_VERSION_NAME})
         IFS="${oldIFS}"
-        echo -e "${INFO} flippy kernel: [ $(echo ${STABLE_KERNEL[@]} | xargs) ]"
+        echo -e "${INFO} kernel: [ $(echo ${STABLE_KERNEL[@]} | xargs) ]"
     }
 
     # Convert kernel library address to api format
