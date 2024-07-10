@@ -98,7 +98,7 @@ on:
         type: choice
         options:
           - ophub
-          - ffzx
+          - ffzz
           - QXY716
 
 env:
@@ -184,7 +184,7 @@ jobs:
           ln -sf /builder/${SELECT_PACKITPATH} /opt/${SELECT_PACKITPATH}
 
       - name: Package OpenWrt Firmware
-        uses: QXY716/flippy-openwrt-actions@main
+        uses: ffei1/flippy-openwrt-actions@main
         if: ${{ steps.download.outputs.status }} == 'success' && !cancelled()
         env:
           OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*rootfs.tar.gz
