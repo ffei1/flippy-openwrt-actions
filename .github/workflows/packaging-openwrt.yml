@@ -61,7 +61,7 @@ on:
           - 5.4.y
           - 5.10.y
           - 5.15.y
-          - 6.1.y
+          - 6.1.75
           - 6.6.y
           - 6.1.y_6.6.y
           - 5.15.y_5.10.y
@@ -94,11 +94,11 @@ on:
       builder_name:
         description: "Set OpenWrt builder signature."
         required: false
-        default: "QXY716"
+        default: "ffzz"
         type: choice
         options:
           - ophub
-          - angel
+          - ffzx
           - QXY716
 
 env:
@@ -164,7 +164,7 @@ jobs:
           [[ -d "${armvirt_tarfile_path}" ]] || mkdir -p ${armvirt_tarfile_path}
           ln -sf /builder/openwrt ${GITHUB_WORKSPACE}/openwrt
 
-          latest_url="https://github.com/breakings/OpenWrt/releases/download/openwrt_armvirt/openwrt-armvirt-64-generic-rootfs.tar.gz"
+          latest_url="https://github.com/ffei1/amlogic-s9xxx-openwrt/releases/download/OpenWrt_lede_save_2024.07/openwrt-armvirt-64-generic-rootfs.tar.gz"
 
           openwrt_filename="${latest_url##*/}"
           curl -fsSL "${latest_url}" -o "${armvirt_tarfile_path}/${openwrt_filename}"
@@ -177,7 +177,7 @@ jobs:
         working-directory: /builder
         if: ${{ steps.init.outputs.status }} == 'success' && !cancelled()
         run: |
-          SCRIPT_REPO_URL="https://github.com/QXY716/openwrt_packit"
+          SCRIPT_REPO_URL="https://github.com/ffei1/openwrt_packit"
           SCRIPT_REPO_BRANCH="master"
           SELECT_PACKITPATH="openwrt_packit"
           git clone -q --single-branch --depth=1 --branch=${SCRIPT_REPO_BRANCH} ${SCRIPT_REPO_URL} ${SELECT_PACKITPATH}
