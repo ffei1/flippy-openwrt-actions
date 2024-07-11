@@ -347,7 +347,7 @@ query_kernel() {
                 echo -e "${INFO} The latest version of the rk35xx kernel: [ ${RK35XX_KERNEL[@]} ]"
             else
                 STABLE_KERNEL=(${TMP_ARR_KERNELS[@]})
-                echo -e "${INFO} The latest version of the flippy kernel: [ ${STABLE_KERNEL[@]} ]"
+                echo -e "${INFO} The latest version of the stable kernel: [ ${STABLE_KERNEL[@]} ]"
             fi
 
             let x++
@@ -445,7 +445,7 @@ make_openwrt() {
                 vb="rk35xx"
             else
                 build_kernel=(${STABLE_KERNEL[@]})
-                vb="flippy"
+                vb="stable"
             fi
 
             k="1"
