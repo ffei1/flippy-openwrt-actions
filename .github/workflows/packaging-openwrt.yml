@@ -78,7 +78,7 @@ on:
         type: choice
         options:
           - ophub/kernel
-          - breakings/OpenWrt
+          - breakingbadboy/OpenWrt
           - QXY716/kernel
       auto_kernel:
         description: "Auto use the latest kernel"
